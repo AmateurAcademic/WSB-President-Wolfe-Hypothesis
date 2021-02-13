@@ -6,6 +6,8 @@ import os
 from contextlib import closing
 import shutil
 import requests
+from urllib.request import request
+
 
 # THE list to track
 symbols = ["GME", "AMC", "BB", "TSLA", "PLTR", "NOK", "TLRY", "SNDL", "AAPL", "MSFT"]
