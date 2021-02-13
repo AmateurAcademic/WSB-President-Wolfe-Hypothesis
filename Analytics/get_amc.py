@@ -1,7 +1,11 @@
 import pandas as pd
 import yfinance as yf
 import numpy as np
-from datetime import datetime
+from datetime import datetime, timedelta
+import os
+from contextlib import closing
+import shutil
+import requests
 
 # THE list to track
 symbols = ["GME", "AMC", "BB", "TSLA", "PLTR", "NOK", "TLRY", "SNDL", "AAPL", "MSFT"]
@@ -79,24 +83,40 @@ for finra_file in files_to_be_removed:
 
 
 
-CNMSshvol_df = pd.read_csv('CNMSshvol20210212.txt', sep='|', header=0)
-CNMSshvol_df['date'] =  pd.to_datetime(CNMSshvol_df['Date'], errors='coerce', format='%Y%m%d')
 
-# TODO get the files for the volume
 
 # TODO filter out only the interesting symbols
 
 # TODO add together the files to 1 dataframe
 
 
-date_str =  str(CNMSshvol_df['Date'][0])
-date = datetime(year=int(date_str[0:4]), month=int(date_str[4:6]), day=int(date_str[6:8]))
+
+day_to_be_scraped = today - timedelta(days=lookback_days)
+
+while (day_to_be_scraped <= today):
+    filename = (day_to_be_scraped).strftime('%Y%m%d') + '.txt'
+
+    Bvol_df = pd.read_csv('B/'+filename, sep='|', header=0)
+    Bvol_df['date'] =  pd.to_datetime(Bvol_df['Date'], errors='coerce', format='%Y%m%d')
+
+    Fvol_df = pd.read_csv('F/'+filename, sep='|', header=0)
+    Fvol_df['date'] =  pd.to_datetime(Fvol_df['Date'], errors='coerce', format='%Y%m%d')
+
+    Pvol_df = pd.read_csv('P/'+filename, sep='|', header=0)
+    Pvol_df['date'] =  pd.to_datetime(Pvol_df['Date'], errors='coerce', format='%Y%m%d')
 
 
-one_day_change = []
+    date_str =  str(Bvol_df['Date'][0])
+    date = datetime(year=int(date_str[0:4]), month=int(date_str[4:6]), day=int(date_str[6:8]))
 
-for symbol in symbols:
-    try:
-        one_day_change.append(get_change(symbol, date))
-    except:
-        one_day_change.append(np.nan)
+
+    one_day_change = []
+
+    for symbol in symbols:
+        try:
+            one_day_change.append(get_change(symbol, date))
+        except:
+            one_day_change.append(np.nan)
+
+
+    day_to_be_scraped += timedelta(days=1)
