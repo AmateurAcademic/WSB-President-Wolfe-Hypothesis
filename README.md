@@ -10,4 +10,4 @@ The WSB President Wolfe Hypothesis came from this [post](https://www.reddit.com/
  
  The hypothesis is easy to disprove by finding arbitary counter-examples. While tracking and especially normalizing shorting volumes can be a helpful indicator, there is no significant correlation between the 3 shorting volumes and the outcome on the price of the stock in terms of "syncing" behavior. 
  
- The sources of the data, as listed by the OP is the [NASDAQ Volume Files](ftp://ftp.nasdaqtrader.com/files/shortsaledata/daily/) and [FINA Volume files](http://regsho.finra.org/regsho-Index.html).
+ The sources of the data, as listed by the OP is the [NASDAQ Volume Files ftp://ftp.nasdaqtrader.com/files/shortsaledata/daily/](ftp://ftp.nasdaqtrader.com/files/shortsaledata/daily/) and [FINA Volume files](http://regsho.finra.org/regsho-Index.html).
