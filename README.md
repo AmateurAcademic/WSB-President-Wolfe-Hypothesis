@@ -1,5 +1,5 @@
 # WSB-President-Wolfe-Hypothesis
-Results from the first WSB hypothesis hackathon. There is a much better repo that came out since we have had our hackathon, please use [Caesurus Short Volume] (https://github.com/Caesurus/short_volume). 
+Results from the first WSB hypothesis hackathon. There is a much better repo that came out since we have had our hackathon, please use [Caesurus Short Volume] (https://github.com/Caesurus/short_volume) . 
 
 ## Hypothesis
 The WSB President Wolfe Hypothesis came from this [post](https://www.reddit.com/r/wallstreetbets/comments/li5vch/i_think_i_found_a_way_to_predict_dips_with_nasdaq/). The post roughly states that the shorting volumes from 3 different sources (NASDAQ BX, NASDAQ PSX, FINA daily short volumes) can "sync", and when they do, the price of the stock goes down. A lot of people found this interesting on Wall Street Bets. I happened to comment on this post, and several DMs later, we had a team to build a scraper and analysis scripts. These are the graphs produced by the OP. 
